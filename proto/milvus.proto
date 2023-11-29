@@ -1104,6 +1104,7 @@ message GetFlushStateRequest {
 message GetFlushStateResponse {
   common.Status status = 1;
   bool flushed = 2;
+  map<string, msg.MsgPosition> channelCPs = 3;
 }
 
 message GetFlushAllStateRequest {
