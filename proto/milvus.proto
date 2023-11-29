@@ -1025,9 +1025,17 @@ message GetFlushStateRequest {
   repeated int64 segmentIDs = 1;
 }
 
+message MsgPosition {
+  string channel_name = 1;
+  bytes msgID = 2;
+  string msgGroup = 3;
+  uint64 timestamp = 4;
+}
+    
 message GetFlushStateResponse {
   common.Status status = 1;
   bool flushed = 2;
+  map<string, MsgPosition> channelCps = 3;
 }
 
 message GetFlushAllStateRequest {
