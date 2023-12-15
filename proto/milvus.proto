@@ -1204,6 +1204,7 @@ message ImportRequest {
   repeated string files = 5;                 // file paths to be imported
   repeated common.KeyValuePair options = 6;  // import options, bucket, etc.
   string db_name = 7;
+  bytes distribution = 8;
 }
 
 message ImportResponse {
