@@ -187,8 +187,3 @@ message VectorClusteringOperation {
 message ScalarClusteringInfo {
   string field = 1;
 }
-
-message DistributionInfo {
-  repeated VectorClusteringInfo vector_clustering_infos = 1;
-  repeated ScalarClusteringInfo scalar_range_infos = 2;
-}

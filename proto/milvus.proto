@@ -1117,6 +1117,11 @@ message GetFlushAllStateResponse {
   bool flushed = 2;
 }
 
+message DistributionInfo {
+  repeated schema.VectorClusteringInfo vector_clustering_infos = 1;
+  repeated schema.ScalarClusteringInfo scalar_clustering_infos = 2;
+}
+
 message ImportRequest {
   option (common.privilege_ext_obj) = {
     object_type: Collection
@@ -1130,7 +1135,7 @@ message ImportRequest {
   repeated string files = 5;                 // file paths to be imported
   repeated common.KeyValuePair options = 6;  // import options, bucket, etc.
   string db_name = 7;
-  bytes distribution = 8;
+  bytes distribution = 8; // serialized `DistributionInfo`
 }
 
 message ImportResponse {
